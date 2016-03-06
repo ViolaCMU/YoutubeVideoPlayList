@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .container
+    .row.header
+      form
+        label(for='artists-menu') Artist:
+        select#artists-menu.selectpicker
+          each artist in artists
+            option(value='#{artist}') #{artist}
+    .row
+      each item in videos
+        .col-md-3.col-sm-6
+          //- var video = item.title
+          include videoPreview
