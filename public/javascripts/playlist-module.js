@@ -1,6 +1,6 @@
 var playlist = angular.module('playlist', []);
 
-playlist.controller('mainController', ['$scope', 'getPlaylist', function($scope, getPlaylist) {
+playlist.controller('mainController', ['$scope', 'getPlaylist', '$sce', '$document', function($scope, getPlaylist, $sce, $document) {
 
     $scope.getVideos = function(){
         console.log($scope.artist);
@@ -9,6 +9,15 @@ playlist.controller('mainController', ['$scope', 'getPlaylist', function($scope,
             $scope.newVideos = result.result;
 
         })
+    };
+
+    $scope.playVideo = function(id){
+        $scope.currVideo = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + id);
+    };
+
+    $scope.closePlayer = function(){
+        var player = angular.element('.player-iframe')[0].contentWindow.angular.element('#player');
+        player.stopVideo();
     };
 
 }]);

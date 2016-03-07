@@ -1,6 +1,16 @@
 .thumbnail(ng-repeat='item in newVideos')
-  a(class='video', href='https://www.yahoo.com/music/music-video-premiere-see-voice-champ-jordan-164816681.html')
-    img(class='video-screenshot', ng-src="{{item.snippet.thumbnails.high.url}}")
+  a(class='video', href='#', data-toggle='modal', data-target='#playerModal' ng-click='playVideo(item.id)')
+    img(class='video-screenshot', ng-src='{{item.snippet.thumbnails.high.url}}')
+    .mask
+      img(src='/images/play-video-icon.png')
   .caption
     p.title {{item.snippet.title}}
     p.source {{item.snippet.description}}
+
+#playerModal.modal.fade(role='dialog', data-backdrop='static')
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-body
+        button.close(type='button' data-dismiss='modal' ng-click='closePlayer()') &times;
+        iframe(ng-src='{{currVideo}}' class='player-iframe')
+
