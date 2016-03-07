@@ -12,7 +12,7 @@ playlist.controller('mainController', ['$scope', 'getPlaylist', '$sce', '$docume
     };
 
     $scope.playVideo = function(id){
-        $scope.currVideo = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + id);
+        $scope.currVideo = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + id);
     };
 
     $scope.closePlayer = function(){
