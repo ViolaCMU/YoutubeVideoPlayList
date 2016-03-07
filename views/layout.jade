@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='playlist')
   head
     title= title
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -7,9 +7,10 @@ html
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/components/bootstrap-select/dist/css/bootstrap-select.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+  body(ng-controller='mainController')
     block content
     script(src='/components/jquery/dist/jquery.min.js')
     script(src='/components/bootstrap/dist/js/bootstrap.min.js')
     script(src='/components/bootstrap-select/dist/js/bootstrap-select.min.js')
-    script(src='/javascripts/helper.js')
+    script(src='/components/angular/angular.min.js')
+    script(src='/javascripts/playlist-module.js')

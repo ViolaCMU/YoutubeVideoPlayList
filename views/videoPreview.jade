@@ -1,6 +1,6 @@
-.thumbnail
+.thumbnail(ng-repeat='item in newVideos')
   a(class='video', href='https://www.yahoo.com/music/music-video-premiere-see-voice-champ-jordan-164816681.html')
-    img(class='screenshot', src='http://www.dropmark.com/assets/playlist.jpg')
+    img(class='video-screenshot', ng-src="{{item.snippet.thumbnails.high.url}}")
   .caption
-    p.title #{item.title}
-    p.source #{item.title}
+    p.title {{item.snippet.title}}
+    p.source {{item.snippet.description}}

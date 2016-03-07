@@ -7,14 +7,26 @@ a {
   color: #00B7FF;
 }
 
-.header {
+header {
   margin: 10px 0;
 }
-.form-group label {
+form label {
   margin: 0 10px 0 0;
   font-weight: 400;
 }
 
+.playlist {
+  -webkit-column-width:20vw;
+  -moz-column-width:20vw;
+  -webkit-column-gap:5px;
+  -moz-column-gap:5px;
+
+}
+.thumbnail {
+  /*width:160px;*/
+  margin:4px 0;
+  -webkit-column-break-inside: avoid;
+}
 
 /*@media screen and (max-width: 767px) {*/
   /*#artists-menu {*/

@@ -2,14 +2,13 @@ extends layout
 
 block content
   .container
-    .row.header
+    script(type='text/javascript').
+      newVideos = "#{videos[0].id}";
+    header
       form
         label(for='artists-menu') Artist:
-        select#artists-menu.selectpicker
+        select#artists-menu.selectpicker(ng-init='artist = "#{artists[0]}"', ng-model='artist', ng-change='getVideos()')
           each artist in artists
             option(value='#{artist}') #{artist}
-    .row
-      each item in videos
-        .col-md-3.col-sm-6
-          //- var video = item.title
-          include videoPreview
+    .playlist(ng-init='newVideos = #{JSON.stringify(videos)}')
+      include videoPreview
