@@ -4,7 +4,7 @@ block content
   .container
     header
       form
-        label(for='artists-menu') Artist:
+        label(for='artists-menu') ARTIST
         select#artists-menu.selectpicker(ng-init='artist = "#{artists[0]}"', ng-model='artist', ng-change='getVideos()')
           each artist in artists
             option(value='#{artist}') #{artist}
