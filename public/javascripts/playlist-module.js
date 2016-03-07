@@ -12,12 +12,19 @@ playlist.controller('mainController', ['$scope', 'getPlaylist', '$sce', '$docume
     };
 
     $scope.playVideo = function(id){
-        $scope.currVideo = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + id);
+        $scope.currVideo = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + id + "?enablejsapi=1");
     };
 
     $scope.closePlayer = function(){
+        var iframe = angular.element('.player-iframe')[0].contentWindow;
         var player = angular.element('.player-iframe')[0].contentWindow.angular.element('#player');
-        player.stopVideo();
+        //player.stopVideo();
+
+        //var div = document.getElementById("popupVid");
+        //var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+        //div.style.display = state == 'hide' ? 'none' : '';
+        //func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+        iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     };
 
 }]);
