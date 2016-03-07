@@ -1,11 +1,11 @@
 .thumbnail(ng-repeat='item in newVideos')
-  a(class='video', href='#', data-toggle='modal', data-target='#playerModal' ng-click='playVideo(item.id)')
-    img(class='video-screenshot', ng-src='{{item.snippet.thumbnails.high.url}}')
-    .mask
+  a(class='video' href='#' data-toggle='modal' data-target='#playerModal' ng-click='playVideo(item.id)' ng-mouseover='active(item.id)' ng-mouseout='active(" ")')
+    img(class='video-screenshot' ng-src='{{item.snippet.thumbnails.high.url}}')
+    .mask(ng-show='activeVideo === item.id')
       img(src='/images/play-video-icon.png')
   .caption
     p.title {{item.snippet.title}}
-    p.source {{item.snippet.description}}
+    p.desc {{item.snippet.description}}
 
 #playerModal.modal.fade(role='dialog', data-backdrop='static')
   .modal-dialog.modal-lg

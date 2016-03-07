@@ -20,13 +20,14 @@ form label {
   -moz-column-width:20vw;
   -webkit-column-gap:5px;
   -moz-column-gap:5px;
+
 }
 a.video {
   display: block;
   position: relative;
 }
 .thumbnail {
-  margin:4px 0;
+  margin-bottom:4px;
   -webkit-column-break-inside: avoid;
 }
 
@@ -44,6 +45,17 @@ a.video {
   transform: translateY(-50%);
   width: 130px;
 }
+
+.thumbnail p.title {
+  font-weight: bold;
+}
+.thumbnail p.desc {
+  color: #8e8e8e;
+}
+
+
+
+
 
 #playerModal .close {
   font-size: 4em;
